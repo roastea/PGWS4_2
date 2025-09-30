@@ -9,18 +9,17 @@ public class GamingColor : MonoBehaviour
     {
         Color.red,
         Color.orange,
-        //new Color(1f, 0.5f, 0f), //orange
         Color.yellow,
         Color.green,
         Color.cyan,
         Color.blue,
         Color.violet,
-        //new Color(0.5f, 0f, 1f), //violet
     };
 
     private int currentIndex = 0;
+    private int nextIndex = 1;
     private float timer = 0f;
-    public float changeInterval = 1f; //色の切り替え間隔(s)
+    public float fadeDuration = 2f; //フェードにかける時間(s)
 
     void Start()
     {
@@ -31,11 +30,17 @@ public class GamingColor : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer >= changeInterval)
+        float t = timer / fadeDuration;
+
+        //滑らかに色を変化させる
+        Color currentColor = Color.Lerp(colors[currentIndex], colors[nextIndex], t);
+        material.SetColor("_Color", currentColor);
+
+        if(t >= 1f)
         {
-            currentIndex = (currentIndex + 1) % colors.Length;
-            material.SetColor("_Color", colors[currentIndex]);
             timer = 0f;
+            currentIndex = nextIndex;
+            nextIndex = (nextIndex + 1) % colors.Length;
         }
     }
 }
