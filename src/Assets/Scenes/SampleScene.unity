@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 674998391}
   - component: {fileID: 674998390}
   - component: {fileID: 674998389}
+  - component: {fileID: 674998393}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -494,6 +495,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &674998393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674998388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d36c12b4c566c244bb06a59739dd221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GamingColor
+  targetRenderer: {fileID: 674998390}
+  changeInterval: 1
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
